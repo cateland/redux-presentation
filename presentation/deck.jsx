@@ -12,7 +12,13 @@ import Interactive from "./interactive";
 const images = {
   city: require("./city.jpg"),
   kat: require("./kat.png"),
-  logo: require("./formidable-logo.svg")
+  logo: require("./formidable-logo.svg"),
+  devfest: require("./devfest.png"),
+  flux: require("./flux-diagram.png"),
+  redux1: require("./redux-1.png"),
+  redux2: require("./redux-2.png"),
+  redux3: require("./redux-3.png"),
+  redux4: require("./redux-4.png"),
 };
 
 preloader([images.city, images.kat]);
@@ -21,101 +27,151 @@ export default class extends React.Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={800}>
+        <Slide transition={["slide"]} bgImage={images.devfest.replace("/", "")} bgDarken={0}>
+
+        </Slide>
+
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="black">
-            Spectacle
+            Redux + React
           </Heading>
-          <Heading size={1} fit caps>
-            A ReactJS Presentation Library
-          </Heading>
-          <Heading size={1} fit caps textColor="black">
-            Where You Can Write Your Decks In JSX
-          </Heading>
-          <Link href="https://github.com/FormidableLabs/spectacle">
-            <Text bold caps textColor="tertiary">View on Github</Text>
-          </Link>
-          <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
+          <Appear>
+            <Heading fit caps>Surtout Redux en fait</Heading>
+          </Appear>
+          <Appear>
+            <Heading textColor="black" fit caps>Axel CATELAND @catelandaxel</Heading>
+          </Appear>
         </Slide>
-        <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-          <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
-          <Heading size={1} fit textColor="primary" textFont="secondary">
-            Wait what?
-          </Heading>
-        </Slide>
+
         <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
           <CodePane
-            lang="javascript"
+            lang="bash"
             source={require("raw!./deck.example")}
             margin="20px auto"/>
         </Slide>
-        <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-          <Appear fid="1">
-            <Heading size={1} caps fit textColor="primary">
-              Full Width
-            </Heading>
-          </Appear>
-          <Appear fid="2">
-            <Heading size={1} caps fit textColor="tertiary">
-              Adjustable Darkness
-            </Heading>
-          </Appear>
-          <Appear fid="3">
-            <Heading size={1} caps fit textColor="primary">
-              Background Imagery
-            </Heading>
-          </Appear>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Appear><Heading fit>Pas un framework</Heading></Appear>
+          <Appear><Heading fit>Un pattern</Heading></Appear>
+          <Appear><Heading fit>Une librairie</Heading></Appear>
         </Slide>
-        <Slide transition={["zoom", "fade"]} bgColor="primary">
-          <Heading caps fit>Flexible Layouts</Heading>
-          <Layout>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Left
-              </Heading>
-            </Fill>
-            <Fill>
-              <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                Right
-              </Heading>
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide transition={["slide"]} bgColor="black">
-          <BlockQuote>
-            <Quote>Wonderfully formatted quotes</Quote>
-            <Cite>Ken Wheeler</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide transition={["slide", "spin"]} bgColor="primary">
-          <Heading caps fit size={1} textColor="tertiary">
-            Smooth
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Flux
           </Heading>
-          <Heading caps fit size={1} textColor="secondary">
-            Combinable Transitions
+          <Image src={images.flux.replace("/", "")} width={640}/>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Mais alors pourquoi redux ?
           </Heading>
         </Slide>
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <List>
-            <ListItem><Appear fid="1">Inline style based theme system</Appear></ListItem>
-            <ListItem><Appear fid="2">Autofit text</Appear></ListItem>
-            <ListItem><Appear fid="3">Flexbox layout system</Appear></ListItem>
-            <ListItem><Appear fid="4">React-Router navigation</Appear></ListItem>
-            <ListItem><Appear fid="5">PDF export</Appear></ListItem>
-            <ListItem><Appear fid="6">And...</Appear></ListItem>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Appear>
+            <Heading size={1} caps lineHeight={1} textColor="primary">
+              Hot Loading
+            </Heading>
+          </Appear>
+          <Appear>
+            <Heading size={1} caps lineHeight={1} textColor="primary">
+              Time travelling
+            </Heading>
+          </Appear>
+          <Appear>
+            <Heading size={1} caps lineHeight={1} textColor="primary">
+              Plugins
+            </Heading>
+          </Appear>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Hot Loading
+          </Heading>
+          <List textColor="primary">
+            <ListItem><Appear fid="1">Separer les reducers du store</Appear></ListItem>
+            <ListItem><Appear fid="2">Mutation = pure function</Appear></ListItem>
+            <ListItem><Appear>Composants intelligents</Appear></ListItem>
+            <ListItem><Appear>Composants simples</Appear></ListItem>
           </List>
         </Slide>
-        <Slide transition={["slide"]} bgColor="primary">
-          <Heading size={1} caps fit textColor="tertiary">
-            Your presentations are interactive
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Time travelling
           </Heading>
-          <Interactive/>
+          <List textColor="primary">
+            <ListItem><Appear fid="1">Store immutable</Appear></ListItem>
+            <ListItem><Appear fid="2">Reducer copie l'état avec les mutations</Appear></ListItem>
+          </List>
         </Slide>
-        <Slide transition={["spin", "slide"]} bgColor="tertiary">
-          <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-            Made with love in Seattle by
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Plugins
           </Heading>
-          <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+          <List textColor="primary">
+            <ListItem><Appear fid="1">Pas de monkey patching</Appear></ListItem>
+            <ListItem><Appear fid="2">Store wrappable</Appear></ListItem>
+            <ListItem><Appear fid="3">Dispatch wrappable</Appear></ListItem>
+            <ListItem><Appear>Un seul store !</Appear></ListItem>
+          </List>
         </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Image src={images.redux1.replace("/", "")} width={640}/>
+        </Slide>
+        <Slide transition={["zoom"]} bgColor="black">
+          <Image src={images.redux2.replace("/", "")} width={640}/>
+        </Slide>
+        <Slide transition={["zoom"]} bgColor="black">
+          <Image src={images.redux3.replace("/", "")} width={640}/>
+        </Slide>
+        <Slide transition={["zoom"]} bgColor="black">
+          <Image src={images.redux4.replace("/", "")} width={640}/>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading fit>API peu complexe</Heading>
+          <Heading fit>Librarie légère</Heading>
+          <Heading fit>Framework agnostique</Heading>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Store api
+          </Heading>
+          
+          <List textColor="primary">
+            <ListItem><Appear fid="1">getState()</Appear></ListItem>
+            <ListItem><Appear fid="2">dispatch(action)</Appear></ListItem>
+            <ListItem><Appear fid="2">subscribe(listener)</Appear></ListItem>
+            <ListItem><Appear fid="2">replaceReducer(nextReducer)</Appear></ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Utility API
+          </Heading>
+          <List textColor="primary">
+            <ListItem><Appear fid="1">createStore(reducer, [initialState])</Appear></ListItem>
+            <ListItem><Appear fid="2">combineReducers(reducers)</Appear></ListItem>
+            <ListItem><Appear fid="2">applyMiddleware(...middlewares)</Appear></ListItem>
+            <ListItem><Appear fid="2">bindActionCreators(actionCreators, dispatch)</Appear></ListItem>
+            <ListItem><Appear fid="2">compose(...functions)</Appear></ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="black">
+          <Heading size={1} caps lineHeight={1} textColor="primary">
+            Action !
+          </Heading>
+        </Slide>
+        
       </Deck>
     );
   }
